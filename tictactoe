@@ -1,0 +1,245 @@
+def calc_win(pot):
+	if (7 == pot & 7):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (56 == pot & 56):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (448 == pot & 448):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (73 == pot & 73):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (146 == pot & 146):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (292 == pot & 292):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (273 == pot & 273):
+		print("Congrats " + token + " You won!")
+		return True
+	elif (84 == pot & 84):
+		print("Congrats " + token + " You won!")
+		return True
+	else:
+		return False
+
+play = 1
+
+while play == 1:
+	board1 = '|   |   |   |'
+	board2 = '|   |   |   |'
+	board3 = '|   |   |   |'
+	intStrt = 9
+	turn = 0
+	xPoints = 0
+	oPoints = 0
+	
+	valid = bool(0)
+	print("This is your Board, use numbers 1 through 9 to select a position to place your X or O.")
+	while intStrt == 0:
+		gameStart=input("Want to play?(y/n)")
+		if gameStart == 'y':
+			intStrt = 1
+		elif gameStart == 'n':
+			intStrt = 0
+			quit()
+		else:
+			print("Invalid")
+		pass
+	
+	print(board1)
+	print(board2)
+	print(board3)
+	
+	while intStrt > 0:
+		turn = turn ^ 1
+		if turn == 1:
+			token = 'X'
+		elif turn == 0:
+			token = 'O'
+		while valid == bool(0):
+			try:
+				move = input("Where would you like your " + token + " to be placed?")
+				spot = int(move)
+
+				if spot != None:
+
+
+					if spot == 1:
+						if board1[2] == " ":
+							board1 = board1[:2] + str(token) + board1[3:]
+							if token == "X":
+								xPoints = xPoints + 1
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 1
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 2:
+						if board1[6] == " ":
+							board1 = board1[:6] + str(token) + board1[7:]
+							if token == "X":
+								xPoints = xPoints + 2
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 2
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+					elif spot == 3:
+						if board1[10] == " ":
+							board1 = board1[:10] + str(token) + board1[11:]
+							if token == "X":
+								xPoints = xPoints + 4
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 4
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 4:
+						if board2[2] == " ":
+							board2 = board2[:2] + str(token) + board2[3:]
+							if token == "X":
+								xPoints = xPoints + 8
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 8
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 5:
+						if board2[6] == " ":
+							board2 = board2[:6] + str(token) + board2[7:]
+							if token == "X":
+								xPoints = xPoints + 16
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 16
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 6:
+						if board2[10] == " ":
+							board2 = board2[:10] + str(token) + board2[11:]
+							if token == "X":
+								xPoints = xPoints + 32
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 32
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 7:
+						if board3[2] == " ":
+							board3 = board3[:2] + str(token) + board3[3:]
+							if token == "X":
+								xPoints = xPoints + 64
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 64
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 8:
+						if board3[6] == " ":
+							board3 = board3[:6] + str(token) + board3[7:]
+							if token == "X":
+								xPoints = xPoints + 128
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 128
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+		
+		
+					elif spot == 9:
+						if board3[10] == " ":
+							board3 = board3[:10] + str(token) + board3[11:]
+							if token == "X":
+								xPoints = xPoints + 256
+								if calc_win(xPoints) == True:
+									intStrt = 0
+									break
+							elif token == "O":
+								oPoints = oPoints + 256
+								if calc_win(oPoints) == True:
+									intStrt = 0
+									break
+						else:
+							raise Exeption("Placement Error")
+					else:
+						raise Exception("Too High")
+	
+	
+					valid = bool(1)
+			except:
+				print("Error")
+		print(board1)
+		print(board2)
+		print(board3)
+		intStrt = intStrt - 1
+		valid = bool(0)
+
+	again = None
+	while again == None:
+		answer = input("Would you like to play again?(y/n)")
+		if answer == "y":
+			again = "some"
+		elif answer == "n":
+			play = 0
+			again = "some"
+		else:
+			print("Invalid Entry")
+
+print("Thanks For Playing :)")
